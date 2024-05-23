@@ -3,10 +3,10 @@ import requests
 
 app = Flask(__name__)
 
-API_KEY = "c520b12fd24d8edd6903bd32"
+API_KEY = "YOUR_API_KEY"  # Replace with your actual API key
 
 def get_exchange_rate(base_currency, target_currency):
-    url = f"https://v6.exchangerate-api.com/v6/c520b12fd24d8edd6903bd32/latest/{base_currency}"
+    url = f"https://v6.exchangerate-api.com/v6/{API_KEY}/latest/{base_currency}"
     response = requests.get(url)
     data = response.json()
     return data["conversion_rates"].get(target_currency, None)
