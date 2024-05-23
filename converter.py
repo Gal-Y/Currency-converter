@@ -21,7 +21,8 @@ def get_all_currencies():
 
 @app.route('/')
 def index():
-    return render_template('index.html')
+    currencies = get_all_currencies()
+    return render_template('index.html', currencies=currencies)
 
 @app.route('/convert', methods=['POST'])
 def convert():
