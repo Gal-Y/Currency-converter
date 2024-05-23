@@ -26,4 +26,12 @@ $(document).ready(function() {
             }
         });
     });
+
+    $('#swap-button').on('click', function() {
+        const baseCurrency = baseCurrencySelect.val();
+        const targetCurrency = targetCurrencySelect.val();
+        
+        baseCurrencySelect.val(targetCurrency);
+        targetCurrencySelect.val(baseCurrency);
+    });
 });
