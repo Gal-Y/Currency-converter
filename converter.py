@@ -9,7 +9,6 @@ def get_exchange_rate(base_currency, target_currency):
     url = f"https://v6.exchangerate-api.com/v6/c520b12fd24d8edd6903bd32/latest/{base_currency}"
     response = requests.get(url)
     data = response.json()
-    print(data)
     return data["conversion_rates"].get(target_currency, None)
 
 @app.route('/')
