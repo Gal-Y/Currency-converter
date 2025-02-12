@@ -1,0 +1,13 @@
+Steps to navigate in Git Bash to connect to server 
+cd /c/Users...
+
+ssh -i currency-converter-key.pem ubuntu@13.236.94.102
+
+After connecting to EC2 
+cd Currency-converter
+
+source venv/bin/activate
+
+
+Check if supervisor is working
+sudo supervisorctl status
