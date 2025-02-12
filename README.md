@@ -2,6 +2,9 @@
 
 This is a simple web-based currency converter application built with Flask, a lightweight web framework for Python. The application allows users to convert an amount from one currency to another using real-time exchange rates fetched from the ExchangeRate-API.
 
+Access the application through: http://13.236.94.102
+Note this application is accessed using http so there will be "not secure" warning.
+
 ## Features
 
 - Convert amounts between different currencies.
