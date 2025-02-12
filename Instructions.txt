@@ -11,3 +11,29 @@ source venv/bin/activate
 
 Check if supervisor is working
 sudo supervisorctl status
+
+How everything interacts:
+EC2 - The server
+- Virtual server provided by AWS. Essentially a computer in the cloud where the application is.
+- Hosts the entire environment: including Python, Flask, Gunicor, Nginx, Supervisor.
+
+Gunicorn - The application server
+- A WSGI server that runs flask app. Flask itself cannot handle production traffic directly. 
+- Manages Python processes and handles request efficiently using multiple workers
+- Converts web requests into Python calls for flask app
+
+Nginx - The reverse proxy server
+- Handles all incoming HTTP traffic (on port 80)
+- Reverse proxies requests to Gunicorn which then runs the code
+
+Interaction:
+
+A user visits http://<your-ec2-ip>.
+Nginx receives the request (port 80).
+Nginx forwards it to Gunicorn (port 5000).
+Gunicorn processes the request using your Flask app.
+The response flows back: Gunicorn → Nginx → User’s browser.
+
+Supervisor - The process manager
+- Keeps Gunicorn running 24/7
+- Restarts Gunicorn if crashes
